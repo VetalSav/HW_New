@@ -14,7 +14,7 @@ import {Loader} from './Loader'
 * */
 
 const HW10 = () => {
-    console.log("HW10)")
+    console.log("HW10_git)")
     const dispatch = useDispatch()
     const statusLoading = useSelector<AppStoreType, isLoadingType>((state) => state.loading)
     // useSelector, useDispatch // пишет студент
