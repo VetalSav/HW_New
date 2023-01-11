@@ -29,12 +29,15 @@ function HW11() {
             if (activeThumb === 0) {
                 const clamped = Math.min(newValue[0], 100 - minDistance);
                 setValue2([clamped, clamped + minDistance]);
+                setValue1(newValue[0])
             } else {
                 const clamped = Math.max(newValue[1], minDistance);
                 setValue2([clamped - minDistance, clamped]);
+                setValue1(newValue[0])
             }
         } else {
             setValue2(newValue as number[]);
+            setValue1(newValue[0])
         }
     };
     return (
