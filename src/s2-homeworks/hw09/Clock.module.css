@@ -1,0 +1,36 @@
+.clock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #bac5d0;
+    max-width: 350px;
+    max-height: 200px;
+}
+
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+
+.watch {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    text-align: center;
+    vertical-align: middle;
+    min-height: 80px;
+    background-color: #5e6c79;
+}
+
+.watch strong {
+}
+
+.more {
+}

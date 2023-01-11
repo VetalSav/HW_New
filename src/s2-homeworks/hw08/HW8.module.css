@@ -1,0 +1,51 @@
+.item {
+   min-height: 40px;
+    background-color: #e4e8e4;
+}
+
+.item:last-of-type {
+}
+
+.users {
+    border-collapse: collapse;
+    border: 2px solid;
+    width: 100%;
+}
+th {
+
+    padding: 15px;
+    height: 100px;
+    border-bottom: 1px solid #ddd;
+}
+tr:hover {background-color: coral;}
+td {
+    padding: 15px;
+    height: 30px;
+    border-bottom: 1px solid #ddd;
+}
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background-color: #eae4e4;
+}
+
+.thead {
+    background: #c5c0c0;
+    font-weight: 600;
+    color: #070707;
+}
+
+.nameCol {
+}
+
+.ageCol {
+}

@@ -1,0 +1,8 @@
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.editableSpanContainer {
+    max-width: 276px;
+}

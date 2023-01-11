@@ -1,0 +1,16 @@
+.select {
+    min-width: 100px;
+    min-height: 30px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+
+.select:focus {
+    background-color: #ace09f;
+}
+
+
+.option:hover {
+    background-color: #5aa846;
+}

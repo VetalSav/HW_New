@@ -1,0 +1,88 @@
+.button {
+
+    cursor: pointer;
+    min-width: 100px;
+    background-image: linear-gradient(to right, #0cebeb 0%, #20e3b2 51%, #0cebeb 100%);
+    margin: 10px;
+    padding: 5px 5px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #0c0c0c;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 20px;
+    display: block;
+
+
+}
+
+.button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #1a0808;
+    text-decoration: none;
+    /* cursor: pointer;*/
+
+}
+
+.disabled {
+    background-image: linear-gradient(to right, #b9b9b9 0%, #a9cec2 51%, #9a9a9a 100%);
+
+}
+
+.secondary {
+    color: #000;
+
+
+    background-image: linear-gradient(to right, #ffffff 0%, #a5d2c7 60%, #fafafa 100%);
+}
+
+.default {
+    font-weight: 600;
+    cursor: pointer;
+    background-image: linear-gradient(to right, #005757 0%, #20e3b2 51%, #005b5b 100%);
+    margin: 10px;
+    padding: 5px 5px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #030303;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 20px;
+    display: block;
+}
+
+.red {
+    background-image: linear-gradient(to right, #eea2a2 0%, #f1414e 60%, #f59494 100%);
+}
+
+.default:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #1a0808;
+    text-decoration: none;
+}
+
+.red:hover {
+    background-image: linear-gradient(to right, #f11616 0%, #790611 60%, #f61515 100%);
+}
+
+
+.secondary:hover {
+}
+
+
+.default:active {
+}
+
+.secondary:active {
+
+}
+
+.red:active {
+}
+
+.button:disabled {
+    background-image: linear-gradient(to right, #b9b9b9 0%, #a9cec2 51%, #9a9a9a 100%);
+}
+

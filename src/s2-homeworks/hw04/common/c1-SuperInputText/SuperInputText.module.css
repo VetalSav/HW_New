@@ -1,0 +1,37 @@
+.input:focus {
+background-color: #d1eac1;
+}
+
+.input {
+    border-radius: 5px;
+    min-width: 80px;
+    min-height: 40px;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    min-width: 130px;
+    min-height: 80px;
+    border-radius: 8px;
+  background-color: #cec3c3;
+}
+
+.superInput {
+    background-color: #79d381;
+}
+
+.errorInput {
+    background-color: #e3c0c0;
+
+}
+
+.errorInput:focus {
+    background-color: #e3c0c0;
+}
+
+.error {
+    color: #cc0000;
+}
