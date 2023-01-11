@@ -14,7 +14,6 @@ import {Loader} from './Loader'
 * */
 
 const HW10 = () => {
-    console.log("HW10_git)")
     const dispatch = useDispatch()
     const statusLoading = useSelector<AppStoreType, isLoadingType>((state) => state.loading)
     // useSelector, useDispatch // пишет студент
@@ -22,10 +21,9 @@ const HW10 = () => {
 
     const setLoading = () => { // пишет студент // показать крутилку на 1,5 секунд
         dispatch(loadingAC(true))
-        isLoading = statusLoading.isLoading
         setTimeout(() => {
             dispatch(loadingAC(false))
-        }, 5000)
+        }, 1500)
     }
 
     return (
