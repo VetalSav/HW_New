@@ -1,8 +1,8 @@
 const initState = {
-    themeId: 1,
+    themeId: "1",
 }
 export type themeReducerType = {
-    themeId: any
+    themeId: string
 }
 export const themeReducer = (state:themeReducerType = initState, action: changeThemeIdType): any => { // fix any
     switch (action.type) {
