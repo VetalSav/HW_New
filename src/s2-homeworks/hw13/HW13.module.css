@@ -1,22 +1,37 @@
+.hw{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 .buttonsContainer {
+    display: flex;
+    flex-direction: row;
 }
 
 .responseContainer {
+    display: flex;
+    flex-direction: row;
 }
 
 .imageContainer {
+
 }
 
 .image {
 }
 
 .textContainer{
+
 }
 
 .code {
 }
 
 .text {
+    text-align: center;
+
 }
 .info {
 }

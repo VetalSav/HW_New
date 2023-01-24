@@ -44,19 +44,38 @@ const HW13 = () => {
                 // дописать
 
             })
-            .catch((e) => {
+            .catch((err) => {
                 // дописать
-                console.log(e)
-                let code = e.response.status
-                let imgError =
-                    code === 400
-                    ? error400
-                    : code === 500 ? error500 : errorUnknown
-                setCode(code.toString())
-                setText(e.response.data.errorText.toString())
-                setInfo(e.response.data.info.toString())
-                setImage(imgError)
-                SetdisabletBt(false)
+                console.log(err)
+                if (err.name ==='AxiosError'){
+                    console.log("hello bro")
+                    setImage(errorUnknown)
+                    SetdisabletBt(false)
+                    setText(err.message.toString())
+                    setInfo(err.name.toString())
+
+                }
+                else if (err.response) {
+                    // client received an error response (5xx, 4xx)
+
+                    let code = err.response?.status
+                    let imgError =
+                        code === 400
+                            ? error400
+                            : error500
+                    setCode(code.toString())
+                    setText(err.response.data.errorText.toString())
+                    setInfo(err.response.data.info.toString())
+                    setImage(imgError)
+                    SetdisabletBt(false)
+                } else if (err.request) {
+                    // client never received a response, or request never left
+                    console.log(`err.request ${err.request}`)
+                    SetdisabletBt(false)
+                } else {
+                    // anything else
+                    console.log(` ${err}`)
+                }
             })
     }
 
