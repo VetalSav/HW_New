@@ -46,9 +46,8 @@ const HW13 = () => {
             })
             .catch((err) => {
                 // дописать
-                console.log(err)
+
                 if (err.name ==='AxiosError'){
-                    console.log("hello bro")
                     setImage(errorUnknown)
                     SetdisabletBt(false)
                     setText(err.message.toString())
@@ -70,11 +69,11 @@ const HW13 = () => {
                     SetdisabletBt(false)
                 } else if (err.request) {
                     // client never received a response, or request never left
-                    console.log(`err.request ${err.request}`)
+
                     SetdisabletBt(false)
                 } else {
                     // anything else
-                    console.log(` ${err}`)
+
                 }
             })
     }
