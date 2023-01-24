@@ -7,6 +7,9 @@ import success200 from './images/200.svg'
 import error400 from './images/400.svg'
 import error500 from './images/500.svg'
 import errorUnknown from './images/error.svg'
+import {useDispatch, useSelector} from "react-redux";
+import {AppStoreType} from "../hw10/bll/store";
+import {loadingAC} from "../hw10/bll/loadingReducer";
 
 /*
 * 1 - дописать функцию send
@@ -19,7 +22,8 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
-    const [disabletBt, SetdisabletBt] = useState(false)
+    const statusLoading:boolean = useSelector<AppStoreType, boolean>((state) => state.loading.isLoading)
+    const dispatch = useDispatch()
 
     const send = (x?: boolean | null) => () => {
         const url =
@@ -31,7 +35,7 @@ const HW13 = () => {
         setImage('')
         setText('')
         setInfo('...loading')
-        SetdisabletBt(true)
+        dispatch(loadingAC(true))
         axios
             .post(url, {success: x})
             .then((res) => {
@@ -39,7 +43,7 @@ const HW13 = () => {
                 setImage(success200)
                 setText(res.data.errorText.toString())
                 setInfo(res.data.info.toString())
-                SetdisabletBt(false)
+                dispatch(loadingAC(false))
 
                 // дописать
 
@@ -49,9 +53,9 @@ const HW13 = () => {
 
                 if (err.name ==='AxiosError'){
                     setImage(errorUnknown)
-                    SetdisabletBt(false)
                     setText(err.message.toString())
                     setInfo(err.name.toString())
+                    dispatch(loadingAC(false))
 
                 }
                 else if (err.response) {
@@ -66,11 +70,11 @@ const HW13 = () => {
                     setText(err.response.data.errorText.toString())
                     setInfo(err.response.data.info.toString())
                     setImage(imgError)
-                    SetdisabletBt(false)
+                    dispatch(loadingAC(false))
                 } else if (err.request) {
                     // client never received a response, or request never left
 
-                    SetdisabletBt(false)
+                    dispatch(loadingAC(false))
                 } else {
                     // anything else
 
@@ -88,7 +92,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        disabled={disabletBt}
+                        disabled={statusLoading}
                         // дописать
 
                     >
@@ -98,7 +102,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        disabled={disabletBt}
+                        disabled={statusLoading}
                         // дописать
 
                     >
@@ -108,7 +112,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        disabled={disabletBt}
+                        disabled={statusLoading}
                         // дописать
 
                     >
@@ -118,7 +122,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        disabled={disabletBt}
+                        disabled={statusLoading}
                         // дописать
 
                     >
