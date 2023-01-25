@@ -22,8 +22,6 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
-    const statusLoading:boolean = useSelector<AppStoreType, boolean>((state) => state.loading.isLoading)
-    const dispatch = useDispatch()
 
     const send = (x?: boolean | null) => () => {
         const url =
@@ -35,23 +33,37 @@ const HW13 = () => {
         setImage('')
         setText('')
         setInfo('...loading')
-        dispatch(loadingAC(true))
         axios
             .post(url, {success: x})
             .then((res) => {
-                setCode(res.status.toString())
+                setCode('Код 200!')
                 setImage(success200)
-                setText(res.data.errorText.toString())
-                setInfo(res.data.info.toString())
-                dispatch(loadingAC(false))
-
+                setText(res.data.errorText)
+                setInfo(res.data.info)
                 // дописать
-
             })
             .catch((err) => {
                 // дописать
+                setText(err.response?.data?.errorText || err.message)
+                setInfo(err.response?.data?.info || err.name)
 
-                if (err.code ==='ERR_NETWORK'){
+                switch (err.response?.status) {
+                    case 400 :
+                        setCode('Ошибка 400!')
+                        setImage(error400)
+                        break;
+                    case 500 :
+                        setCode('Ошибка 500!')
+                        setImage(error500)
+                        break;
+                    default:
+                        setCode('Error!')
+                        setImage(errorUnknown)
+                        break;
+                }
+                })
+    }
+                /*if (err.code ==='ERR_NETWORK'){
                     console.log(err)
                     setImage(errorUnknown)
                     setText(err.message.toString())
@@ -72,15 +84,16 @@ const HW13 = () => {
                     setImage(imgError)
                     dispatch(loadingAC(false))
                 } else if (err.request) {
+                    console.log(err+'request')
                     // client never received a response, or request never left
-
                     dispatch(loadingAC(false))
                 } else {
+                    console.log(err+"else")
                     // anything else
 
                 }
-            })
-    }
+            })*/
+
 
     return (
         <div id={'hw13'}>
@@ -92,7 +105,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        disabled={statusLoading}
+                        disabled={info==='...loading'}
                         // дописать
 
                     >
@@ -102,7 +115,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        disabled={statusLoading}
+                        disabled={info==='...loading'}
                         // дописать
 
                     >
@@ -112,7 +125,7 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        disabled={statusLoading}
+                        disabled={info === '...loading'}
                         // дописать
 
                     >
@@ -122,7 +135,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        disabled={statusLoading}
+                        disabled={info === '...loading'}
                         // дописать
 
                     >
