@@ -2,7 +2,7 @@
 
     cursor: pointer;
     min-width: 100px;
-    background-image: linear-gradient(to right, #0cebeb 0%, #20e3b2 51%, #0cebeb 100%);
+    background-image: linear-gradient(to right, #04e8e8 0%, #00644d 51%, #0cebeb 100%);
     margin: 10px;
     padding: 5px 5px;
     text-align: center;
@@ -34,13 +34,13 @@
     color: #000;
 
 
-    background-image: linear-gradient(to right, #ffffff 0%, #a5d2c7 60%, #fafafa 100%);
+    background-image: linear-gradient(to right, #ffffff 0%, #5bf627 70%, #fafafa 100%);
 }
 
 .default {
     font-weight: 600;
     cursor: pointer;
-    background-image: linear-gradient(to right, #005757 0%, #20e3b2 51%, #005b5b 100%);
+    background-image: linear-gradient(to right, #005757 0%, #007c5d 51%, #005b5b 100%);
     margin: 10px;
     padding: 5px 5px;
     text-align: center;

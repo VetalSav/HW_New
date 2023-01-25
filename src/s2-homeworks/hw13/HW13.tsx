@@ -51,7 +51,8 @@ const HW13 = () => {
             .catch((err) => {
                 // дописать
 
-                if (err.name ==='AxiosError'){
+                if (err.code ==='ERR_NETWORK'){
+                    console.log(err)
                     setImage(errorUnknown)
                     setText(err.message.toString())
                     setInfo(err.name.toString())
@@ -60,7 +61,6 @@ const HW13 = () => {
                 }
                 else if (err.response) {
                     // client received an error response (5xx, 4xx)
-
                     let code = err.response?.status
                     let imgError =
                         code === 400
